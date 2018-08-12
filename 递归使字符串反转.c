@@ -1,18 +1,18 @@
-/* µİ¹éÊµÏÖ×Ö·û´®·´×ª */
+/* é€’å½’å®ç°å­—ç¬¦ä¸²åè½¬ */
 
 #include <stdio.h>
 
-/* Èë¿Ú²ÎÊı£º ×Ö·û´®µØÖ·£¬×óÏÂ±ê£¬ÓÒÏÂ±ê*/
-/* ·µ»Ø²ÎÊı£º ÎŞ                        */
+/* å…¥å£å‚æ•°ï¼š å­—ç¬¦ä¸²åœ°å€ï¼Œå·¦ä¸‹æ ‡ï¼Œå³ä¸‹æ ‡*/
+/* è¿”å›å‚æ•°ï¼š æ—                         */
 void reverse(char s[], int left, int right)
 {
-	if(left == right)	return;
+    if(left == right)    return;
     else{
-		char c;
+        char c;
         int i;
         c = s[left];
         for(i=left;i<=right-1;i++)
-			s[i] = s[i+1];
+            s[i] = s[i+1];
         s[right] = c;
         reverse(s, left, right-1);
     }
@@ -20,10 +20,10 @@ void reverse(char s[], int left, int right)
  
 int main()
 {
-	char s[10] = "abcdefghi";
+    char s[10] = "abcdefghi";
     printf("%s\n",s);
     reverse(s,0,8);
     printf("%s\n",s);
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
