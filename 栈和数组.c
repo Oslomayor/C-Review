@@ -1,16 +1,17 @@
-/* Auguest 2nd, 2018 @ home Lihai */
-/* Õ»ºÍÊı×é */
+/* 19:42, Auguest 2nd, 2018 @ home Lihai */
+/* æ ˆå’Œæ•°ç»„ */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAX 100
 
+/* å‡ºæ ˆæ“ä½œ */
 int push(int stack[], int item, int *top)
 {
 	if(*top<MAX)
     {
-		/* ×Ô¼Ó×Ô¼õµÄÓÅÏÈ¼¶´óÓÚÖ¸Õë */
+		/* è‡ªåŠ çš„ä¼˜å…ˆçº§å¤§äºæŒ‡é’ˆ */
 		(*top)++;
         stack[*top] = item;
     }
@@ -19,23 +20,26 @@ int push(int stack[], int item, int *top)
     
 }
 
+/* å…¥æ ˆæ“ä½œ */
 void pop(int stack[], int *top)
 {
 	if(top>=0)
     { 
         stack[*top] = 0;
+        /* è‡ªå‡çš„ä¼˜å…ˆçº§å¤§äºæŒ‡é’ˆ */
         (*top)--;
     }
     else return -1;
     return *top;
 }
 
+/* æ˜¾ç¤ºæ ˆçš„å†…å®¹ */
 void output(int stack[], int *top)
 {
 	int topp;
 	topp = *top;
     printf("********************\n");
-    printf("data in stack:\n");
+    printf("now in stack:\n");
 	while(topp>0)
 	{
 		printf("%d\n", stack[topp]);
@@ -48,13 +52,39 @@ int main()
 {
 	int top = 0;
     int data[100]={0};
-	char c,cache[10];
+	char cache[20];
+    int para;
     
-    while()
+    while(1)
     {
-		/* ÈçºÎÊ¹ÓÃsacnf Í¬Ê±½ÓÊÕ×Ö·û´®ºÍÊı×Ö£¬±ÈÈçËµ "pop", "push 5" */
+		printf("cmd->");
+        /* ç”¨ gets() è·å–ä¸€è¡Œå‘½ä»¤ï¼Œè¯¥å‡½æ•°è‡ªåŠ¨å‰”é™¤Enter */
+		gets(cache);
+        /* ç”¨ strncmp() è§£æå­—ç¬¦ä¸² */
+        if(strncmp(cache,"pop",3)==0)
+        {
+			pop(data, &top);
+            output(data, &top);
+        }
+        else if(strncmp(cache,"push",4)==0)
+        { 
+            char temp[15];
+            /* æå–pushåé¢çš„æ•°å­— */
+            strcpy(temp, (cache+5));
+            /* è½¬å­—ç¬¦ä¸²ä¸ºæ•´å‹æ•°å­— */
+            para = atoi(temp);
+            push(data, para, &top);
+            output(data, &top);
+        }
+        else if(strcmp(cache,"clean",5)*strcmp(cache,"clr",5)*strcmp(cache,"cls",5)==0)
+        { 	/* æ¸…å± */
+            system("cls");
+        }
+        else
+        { 
+            printf("This command is not supported yet!\n");
+        }
     }
     
-	system("pause");
 	return 0;
 }
