@@ -9,10 +9,10 @@
 /* 出栈操作 */
 int push(int stack[], int item, int *top)
 {
-	if(*top<MAX)
+    if(*top<MAX)
     {
-		/* 自加的优先级大于指针 */
-		(*top)++;
+        /* 自加的优先级大于指针 */
+        (*top)++;
         stack[*top] = item;
     }
     else return -1;
@@ -23,7 +23,7 @@ int push(int stack[], int item, int *top)
 /* 入栈操作 */
 void pop(int stack[], int *top)
 {
-	if(top>=0)
+    if(top>=0)
     { 
         stack[*top] = 0;
         /* 自减的优先级大于指针 */
@@ -36,13 +36,13 @@ void pop(int stack[], int *top)
 /* 显示栈的内容 */
 void output(int stack[], int *top)
 {
-	int topp;
-	topp = *top;
+    int topp;
+    topp = *top;
     printf("********************\n");
     printf("now in stack:\n");
-	while(topp>0)
-	{
-		printf("%d\n", stack[topp]);
+    while(topp>0)
+    {
+        printf("%d\n", stack[topp]);
         topp--;
     }
     printf("********************\n");
@@ -50,20 +50,20 @@ void output(int stack[], int *top)
 
 int main()
 {
-	int top = 0;
+    int top = 0;
     int data[100]={0};
-	char cache[20];
+    char cache[20];
     int para;
     
     while(1)
     {
-		printf("cmd->");
+        printf("cmd->");
         /* 用 gets() 获取一行命令，该函数自动剔除Enter */
-		gets(cache);
+        gets(cache);
         /* 用 strncmp() 解析字符串 */
         if(strncmp(cache,"pop",3)==0)
         {
-			pop(data, &top);
+            pop(data, &top);
             output(data, &top);
         }
         else if(strncmp(cache,"push",4)==0)
@@ -75,13 +75,13 @@ int main()
             output(data, &top);
         }
         else if(strcmp(cache,"clean",5)*strcmp(cache,"clr",5)*strcmp(cache,"cls",5)==0)
-        { 	/* 清屏 */
+        {   /* 清屏 */
             system("cls");
         }
         else if(strncmp(cache,"help",4)==0)
         {
-			printf("supported command:\n");
-		    printf("->push [number]\n");
+            printf("supported command:\n");
+            printf("->push [number]\n");
             printf("->pop\n");
             printf("->cls\n");
             printf("->help\n");
@@ -97,5 +97,5 @@ int main()
         }
     }
     
-	return 0;
+    return 0;
 }
