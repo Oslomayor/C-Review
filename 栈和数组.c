@@ -6,7 +6,7 @@
 
 #define MAX 100
 
-/* 出栈操作 */
+/* 入栈操作 */
 int push(int stack[], int item, int *top)
 {
     if(*top<MAX)
@@ -20,7 +20,7 @@ int push(int stack[], int item, int *top)
     
 }
 
-/* 入栈操作 */
+/* 出栈操作 */
 void pop(int stack[], int *top)
 {
     if(top>=0)
