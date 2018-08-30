@@ -38,6 +38,13 @@ int main()
     printf("%u,%u,%u,%u\n",sizeof(str),sizeof(p),sizeof(*p),sizeof(n));
 }
 ```
+##### A. 10,8,9,4
+
+##### B. 9,4,9,4
+
+##### C. 9,8,9,4
+
+##### D. 10,8,1,4
 
 ### 3. 数值 0xdeadbeef 在小端字节序处理器的存储器中的存储方式是（）
 
