@@ -1,4 +1,4 @@
-# 海康威视C语言考题解析
+# 海康威视C语言笔试题解析
 
 > Aug 30th, 2018   WeChatAccount: CrazyEngineer
 >
